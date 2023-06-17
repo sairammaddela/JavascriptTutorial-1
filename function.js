@@ -143,18 +143,67 @@ function normalFunction() {}
 
 // Edge Case: 3
 
-// const function1 = () => {
-//   console.log("function1");
-// };
+const function1 = () => {
+  console.log("function1");
+};
+function function2() {
+  console.log("function2");
+}
+console.log("hey");
 
-// function function2() {
-//   console.log("function2");
-// }
+// This is not IIFE
 
 // (
 //   function1
-// )() // this will give you error
+// )() ;
 
 // (
 //   function2
-// )() // this will give you error
+// )()
+
+// Passing parameter
+
+(function functionwithpara(a, b) {
+  console.log(a, b);
+})(12345, 1234);
+
+((c, d, e) => {
+  console.log(c, d, e);
+})(12, "hELLO");
+
+// DIFFERENCE B/W PARAMETERS AND ARGUMENTS
+
+// here a and message are parameter
+function fancy(a, message) {
+  console.log(a, message);
+}
+
+fancy(20, "Looks good"); // here 20 and looks good are arguments
+
+// Defaul parameters
+
+function senMesssage(message = "Hey chill i amher", messag2 = "ahjscvs") {
+  console.log(message, messag2);
+}
+senMesssage(); // Hey chill i amher
+
+// prmomises
+// callback
+// generator
+// async
+
+// Anonymous function  =>  the function without name is called anonymous function
+
+// IIFE WITH NORMAL ANONYMOUS FUNCTION
+
+(function () {
+  console.log("Hey hi");
+})();
+
+//  const data = ()=> {
+
+//  }
+
+// function () {
+
+// }
