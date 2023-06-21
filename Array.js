@@ -309,3 +309,133 @@ number1.map(func);
 // as name suggest filter use to filter out the data from array and give the new array with filtered data//
 // filter hof always return the array/
 // if condition match its return that element else its return empty array
+
+var number1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// i want only even number ??
+
+const func2 = (v, index, array) => {
+  return v % 2 === 0;
+  // true or false
+};
+
+const filteredData = number1.filter(func2);
+console.log("filter", filteredData);
+
+function myFilter(f, arr) {
+  const result = [];
+  // array and object primitive datatyye  they are reference type
+  for (let i = 0; i < arr.length; i++) {
+    const isTruthy = f(arr[i], i, array);
+    if (isTruthy) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+
+const filter1 = myFilter(func2, number1);
+console.log("mtfilter", filter1);
+const ddd = [];
+
+// ddd = [1, 2, 4];
+
+// how to know giveb variable is array or not
+
+// map , filter , reduce , find
+
+// if you want to check that given variable is falsy or not
+
+// // null , undefine , 0  , ''
+// student &&
+//   Array.isArray(student) &&
+//   student.forEach((data) => {
+//     console.log("data", data);
+//   });
+// console.log("hey");
+
+const student = undefined;
+const student2 = null;
+const student3 = "";
+const student4 = 0;
+const student5 = false;
+const student6 = "vishal";
+
+// if (student) {
+//   console.log(student);
+// }
+
+student && console.log("student2", student);
+student2 && console.log("student2", student2);
+student3 && console.log("student3", student3);
+student4 && console.log("student4", student4);
+student5 && console.log("student5", student5);
+student6 && console.log("student6", student6);
+
+student &&
+  student.forEach(() => {
+    console.log("IT WILL NOT RUN");
+  });
+
+const student7 = [1, 2];
+Array.isArray(student6) &&
+  student6.forEach(() => {
+    console.log("HEY");
+  });
+
+// if(Array.isArray(student7)) {
+//   student7.forEach((data) => {
+//     console.log("student7", data);
+//   });
+// }
+
+// Array.isArray(student7) &&
+//   student7.forEach((data) => {
+//     console.log("student7", data);
+//   });
+
+// const student8 = {};
+
+// student8.forEach(() => {});
+
+// REDUCE
+
+const companyEmployee = [
+  { name: "Vishal", salary: 20000 },
+  { name: "tiro", salary: 100000 },
+  { name: "verr", salary: 30000 },
+  { name: "tom", salary: 200000 },
+  { name: "rim", salary: 10000 },
+  { name: "chim", salary: 30000 },
+];
+
+companyEmployee[0]; //  { name: "Vishal", salary: 20000 },
+companyEmployee[0].name; // 'Vishal'
+
+let totalSum = 0;
+const sum = (employee, index, array) => {
+  console.log(employee);
+  totalSum = totalSum + employee.salary;
+};
+
+companyEmployee.forEach(sum);
+
+console.log(totalSum);
+
+let employeeSum = 0;
+for (let i = 0; i < companyEmployee.length; i++) {
+  employeeSum = employeeSum + companyEmployee[i].salary;
+}
+console.log(employeeSum);
+
+const reduceCallback = (acc, value) => {
+  return acc + value.salary;
+};
+
+let totalSalary = companyEmployee.reduce(reduceCallback, 0);
+
+// let totalSalary = companyEmployee.reduce((acc, value) => {
+//   return acc + value.salary;
+// }, 0);
+
+console.log(totalSalary, "totalSalary");
