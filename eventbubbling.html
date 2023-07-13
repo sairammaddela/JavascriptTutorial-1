@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .box {
+            border: 2px solid;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .grandparent {
+            height: 450px;
+            width: 500px;
+        }
+
+        .parent {
+            height: 350px;
+            width: 400px;
+        }
+
+        .child {
+            height: 300px;
+            width: 300px;
+        }
+
+        .grandchild {
+            height: 250px;
+            width: 250px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid;
+            min-height: 200px;
+            min-width: 250px;
+            max-width: 250px;
+            border-radius: 10px;
+            justify-content: space-evenly;
+            padding-bottom: 10px;
+        }
+
+        .title {
+            padding-top: 10px;
+            margin-left: 3px;
+            width: 100%;
+
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        #capture {
+            width: 300px;
+            height: 250px;
+
+        }
+
+        #childCap {
+            width: 100px;
+            height: 100px;
+        }
+
+        .container {
+            display: flex;
+            padding: 10px;
+            height: 400px;
+            width: 500px;
+            margin: auto
+        }
+
+        .box1 {
+            height: 100px;
+            width: 100px;
+            border: 2px solid;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class='grandparent box' onclick="grandParent(event)">
+        Grand Parent
+        <div class="parent box" onclick="parent(event)">
+            Parent
+            <div class="child box" onclick="child(event)">
+                Child
+                <div class="grandchild box" onclick="grandChild(event)">Click me</div>
+            </div>
+        </div>
+    </div>
+    <div class="card" onclick="cardHandler()">
+        <img
+            src='https://assets.newatlas.com/dims4/default/587d035/2147483647/strip/true/crop/6380x4253+0+2/resize/1920x1280!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fa0%2F97%2F8f4995de4881971f4e6062d2094b%2Fdepositphotos-179881124-xl.jpg' />
+        <span class="title">Dark Chocolate</span>
+        <div class="title flex">
+            <span>₹50</span>
+            <button onclick="buttonHandler(event)">Add</button>
+        </div>
+    </div>
+
+    <input type='checkbox' onclick="checkBoxHandler(event)" />
+
+    <h2>Event Capturing</h2>
+    <div id='capture' class="box">Parent
+        <div id='childCap' class="box">Click me</div>
+    </div> -->
+    <!-- <div class='container box' >
+        <div id='1' onclick="handleCard(event)" class="box1">Box1</div>
+        <div id='2' onclick="handleCard(event)" class="box1">Box2</div>
+        <div id='3' onclick="handleCard(event)" class="box1">Box3</div>
+        <div id='4' onclick="handleCard(event)" class="box1">Box4</div>
+        <div id='5' onclick="handleCard(event)" class="box1">Box5</div>
+        <div id='6' onclick="handleCard(event)" class="box1">Box6</div>
+        <div id='7' onclick="handleCard(event)" class="box1">Box7</div>
+        <div id='8' onclick="handleCard(event)" class="box1">Box8</div>
+        <div id='9' onclick="handleCard(event)" class="box1">Box9</div>
+        <div id='10' onclick="handleCard(event)" class="box1">Box10</div>
+    </div> -->
+    <div id='parent' class='container box'>
+        <div id='1' onclick="handleCard(event)" class="box1">Box1</div>
+        <div id='2' class="box1">Box2</div>
+        <div id='3' class="box1">Box3</div>
+        <div id='4' class="box1">Box4</div>
+        <div id='5' class="box1">Box5</div>
+        <div id='6' class="box1">Box6</div>
+        <div id='7' class="box1">Box7</div>
+        <div id='8' class="box1">Box8</div>
+        <div id='9' class="box1">Box9</div>
+        <div id='10' class="box1">Box10</div>
+    </div>
+    <script src="eventbubbling.js"></script>
+</body>
+
+</html>
