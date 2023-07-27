@@ -25,7 +25,6 @@ callMe(); // function invocation here this will point out to the window object
 var employee = {
   name: "Vishal",
   lastName: "Sharma",
-
   // this cann happen only in noraml function not in arrow function
   printName: function () {
     // this === emplyee
@@ -74,3 +73,78 @@ console.log(fullName2);
 //
 
 //In normal function this does not depends on the what is the parents context it always depends on how it call
+[1, 2, 3].join("");
+
+//Function call
+// Method Invocation
+// Function Invocation
+// Constructor Invocation
+// In-direct invocation
+
+// the value this depends how you are calling the funcgtion
+const employee123 = {
+  name: "Vishal",
+  lastName: "Sharma",
+  printName: function () {
+    // this =>employee123
+    const innerFunction = () => {
+      console.log("innerFunction", this); // ?? employee123
+    };
+    innerFunction();
+    function normalInnerFunction() {
+      console.log("normalInnerFunction", this); // ?? window
+    }
+    normalInnerFunction();
+    return this.name + this.lastName;
+  },
+};
+
+const fullName1 = employee123.printName(); // method invocation
+console.log(fullName1); //??
+
+// In arrow function this will take the context of its immediate parent  (function)context
+// In arrow function this will take the 'this' of its immediate parent  (function)context
+// In arrow function this will not point to its own context  it will always point to it parent context
+
+const arrowFunction = () => {
+  //  this = > window
+  function normalFunction() {
+    // this  =>  window
+    const arrow = () => {
+      console.log("nested", this); // ?? window
+    };
+    arrow();
+  }
+  normalFunction(); // function invocation
+};
+
+arrowFunction(); // function invocation  =>
+
+//Example
+
+const students = {
+  name: "Vishal",
+  lastName: "Sharma",
+  college: "Newton",
+  printCollegeName: () => {
+    console.log(this.college); //
+  },
+  printName: function () {
+    console.log("1==>", this.name, this.lastName); //
+    function Func1() {
+      console.log("2==>", this.name);
+      function func2() {
+        console.log("3==>", this.name); //
+        const fun3 = () => {
+          console.log("3==>", this.name); //
+        };
+        fun3();
+      }
+      func2();
+    }
+    Func1();
+  },
+};
+
+students.printName();
+students.printCollegeName();
