@@ -191,17 +191,55 @@ emp3.printData();
 
 // Creating a polffill for call
 
-Function.prototype.mycall = function () {
-  // this ?? => function
-  // logic for call
+// do whether browser support call function
+Function.prototype.mycall = function (obj, ...args) {
+  //this =>checker
+  // args = [1, 2, 3, 4, 5]
+
+  //obj = {
+  //   name: "Vishal Sharma",
+  // };
+
+  obj.callFunc = this;
+
+  //obj = {
+  //   name: "Vishal Sharma",
+  // callFunc: function () {
+  //   console.log(this.name);
+  // }
+  // };
+
+  obj.callFunc(...args); //method call
 };
+
+// anyObject.callFunc();
 
 const st = {
   name: "Vishal Sharma",
 };
-function checker() {
+function checker(a, b, c, d) {
   console.log(this.name);
 }
 
 // checker.call(st); //  Vishal Sharma
-checker.mycall(st); //  Vishal Sharma
+checker.mycall(st, 1, 2, 3, 4, 5); //  Vishal Sharma what  will be the value this ??
+
+Function.prototype.myapply = function (obj, args) {
+  obj.callFunc = this;
+  obj.callFunc(...args);
+};
+
+checker.myapply(st, [1, 2, 3, 4]);
+
+// Polyfill for bind function
+
+Function.prototype.mybind = function (object, ...args1) {
+  const func = this;
+  return function (...arg2) {
+    // func.mycall(object, ...args, ...arg2);
+    func.myapply(object, [...args, ...arg2]);
+  };
+};
+
+const checkerinstance = checker.mybind(st, 1, 2, 3, 4, 5); // args1
+checkerinstance(1, 2, 3, 4); // args2
