@@ -87,9 +87,9 @@ console.log("stud1", Object.getPrototypeOf(stud1));
 // this
 
 let animal12 = {
-  walk() {
+  walk(s) {
     console.log("I can walk");
-    console.log("animal12", this);
+    console.log(s, this);
   },
   eat() {
     console.log("I can walk");
@@ -101,8 +101,107 @@ const cow123 = {
   callMe() {
     console.log("cow", this);
   },
+  eat() {
+    console.log("Rabbit eating");
+  },
   __proto__: animal12,
 };
 
 cow123.callMe(); // cow
-cow123.walk(); //
+cow123.walk("Cow123"); //method call
+animal12.walk("animal123"); //\
+
+cow123.eat(); //
+animal12.eat(); //
+
+//
+
+const array = [1234];
+const array1 = [1234, 12];
+// we are adding property to the Array prototype
+Array.prototype.printWithMessage = function () {
+  console.log("Hey I am print with message");
+};
+
+array.printWithMessage();
+const a = [];
+console.log(a);
+
+Array.prototype.cityOfDeviPurnima = "Chhatisgarh";
+
+const array123 = ["devi"];
+
+console.log(array123);
+console.log(array123.cityOfDeviPurnima);
+
+function code() {
+  console.log(this);
+}
+
+console.log(new code());
+
+// Write a ploffill for below given function
+
+// call
+// bind
+// apply
+// map
+// filter
+// reduce
+// Promise.all
+// Promise.allSettled
+
+function callMe() {
+  console.log("hey I am function");
+}
+
+// if i create any function i can access call bind and apply this in any functionm
+
+// Function.prototype.mycall = function () {
+
+// };
+
+// Array.prototype.myFilter = function  () {
+
+// }
+
+// String.prototype.myFilter = function  () {
+
+// }
+// Object.prototype.myFilter = function  () {
+
+// }
+
+// Number.prototype.myFilter = function  () {
+
+// }
+function Employee(name) {
+  this.name = name;
+}
+Employee.prototype.printData = function () {
+  console.log("hey just demo");
+};
+
+const emp1 = new Employee("Vishal1");
+const emp2 = new Employee("Vishal2");
+const emp3 = new Employee("Vishal3");
+emp1.printData();
+emp2.printData();
+emp3.printData();
+
+// Creating a polffill for call
+
+Function.prototype.mycall = function () {
+  // this ?? => function
+  // logic for call
+};
+
+const st = {
+  name: "Vishal Sharma",
+};
+function checker() {
+  console.log(this.name);
+}
+
+// checker.call(st); //  Vishal Sharma
+checker.mycall(st); //  Vishal Sharma
